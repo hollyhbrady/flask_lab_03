@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1> Customer Orders</h1>
+    <ul >
+        <li style="display:inline-block; width:20%"><h2>Customer Name</h2></li>
+        <li style="display:inline-block; width:20%"><h2>Order Date</h2></li>
+        <li style="display:inline-block; width:20%"><h2>Quantity</h2></li>
+        <li style="display:inline-block; width:20%"><h2>Description</h2></li>
+    </ul>
+
+    {% for shop_orders in shop_orders %}
+    <ul>
+        <li style="display:inline-block; width:20%">{{shop_orders.customer_name}}</li>
+        <li style="display:inline-block; width:20%">{{shop_orders.order_date}}</li>
+        <li style="display:inline-block; width:20%">{{shop_orders.quantity}}</li>
+        {% for books in shop_orders.book %}
+            <li style="display:inline-block; width:10%">{{books}}</li>
+        {% endfor %}
+    </ul>
+    
+    
+
+
+    {% endfor %}
+    
+</body>
+</html>
