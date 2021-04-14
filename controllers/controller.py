@@ -4,10 +4,11 @@ from models.shop_orders import shop_orders
 
 
 
-@app.route('/')
+@app.route('/orders')
 def index():
     return render_template("index.html", title="shop_orders", shop_orders=shop_orders)
 
 @app.route('/orders/<index>')
-def orders(index):
-    return render_template("order.html",  title=index, shop_orders=shop_orders)
+def order(index):
+    chosen_order = shop_orders[int(index)]
+    return render_template("order.html",  order=chosen_order)
